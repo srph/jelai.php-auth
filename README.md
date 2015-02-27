@@ -47,29 +47,78 @@ Attempts to login a user with the given credentials. Returns true if login was s
 
 `returns`: `boolean`
 
+```php
+<?php
+
+// Assume our user has a `username` of 'yolo' and `password` of '123'
+$auth->attempt(['username' => 'yolo', 'password' => '12'); // false
+$auth->check(); // false
+
+$auth->attempt(['username' => 'yolo', 'password' => '123'); // true
+$auth->check(); // true
+```
+
 #### ```logout``` (*```void```*)
 
 Logs out the provided user.
 
 `returns`: `void`
 
+```php
+<?php
+
+$auth->logout();
+```
+
 #### ```check``` (*```void```*)
 
-Checks if a user is authenticated.
+Checks if a user is authenticated. Complimentary of [```guest```](#guest).
 
 `returns`: `boolean`.
 
+```php
+<?php
+
+// Assume authenticated
+$auth->check(); // true
+
+// Assume guest
+$auth->check(); // false
+$auth->guest() // true
+```
+
 #### ```guest``` (*```void```*)
 
-Checks if a user is a guest.
+Checks if a user is a guest. Complimentary of [```check```](#check).
 
 `returns`: `boolean`
+
+```php
+<?php
+
+// Assume authenticated
+$auth->guest(); // false
+
+// Assume guest
+$auth->guest(); // true
+$auth->check(); // false
+```
 
 #### ```user``` (*```void```*)
 
 Gets the user credentials.
 
-`returns`: `mixed` - (`null`|`object`|`array`). If no user is authenticated, a `null` will be `return`ed.
+`returns`: `mixed` - (`null`|`object`|`array`). If no user is authenticated, a `null` will be `return`ed. Type of return will depend on the fetcher
+
+```php
+<?php
+
+// Assume authenticated
+$auth->user(); // ['username' = > ..., ..]
+
+// Assume guest
+$auth->user(); // null
+```
 
 ### ```EloquentUserProvider```
 
