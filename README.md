@@ -36,7 +36,7 @@ Our auth implementation.
 - *```SRPH\Jelai\Session\SessionInterface```* ```$session```
 - *```string```* ```$key```
 
-#### ```attempt``` (*```array```* ```$credentials```, *```boolean```* $login)
+#### ```attempt``` (*```array```* ```$credentials```, *```boolean```* ```$login```:```true```)
 
 Attempts to login a user with the given credentials. Returns true if login was successful, otherwise false.
 
