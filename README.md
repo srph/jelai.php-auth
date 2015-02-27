@@ -17,7 +17,10 @@ require __DIR__ . '/path/to/src/SRPH/Jelai/Auth/Factory.php';
 require __DIR__ . '/path/to/src/SRPH/Jelai/Auth/EloquentUserProvider.php'; // This package provides a built-in `UserProvider` for `Eloquent`
 require __DIR__ . '/path/to/src/SRPH/Jelai/Session/Factory.php';
 
-$provider = new SRPH\Jelai\Auth\EloquentUserProvider;
+// `EloquentUserProvider` depends on a `Hashing` and `Model` (`Eloquent`) implementation.
+$hasher = new SRPH\Jelai\Hashing\MD5Hasher;
+
+$provider = new SRPH\Jelai\Auth\EloquentUserProvider($hasher, 'User');
 $session = new SRPH\Jelai\Session\NativeSession;
 $auth = new SRPH\Jelai\Auth\Factory($provider, $session, '<YOUR_KEY>');
 ```
@@ -32,9 +35,9 @@ Our auth implementation.
 
 ##### Parameters
 
-- *```SRPH\Jelai\Auth\UserProviderInterface```* ```$provider```
-- *```SRPH\Jelai\Session\SessionInterface```* ```$session```
-- *```string```* ```$key```
+- *```SRPH\Jelai\Auth\UserProviderInterface```* ```$provider``` - Provider implementation
+- *```SRPH\Jelai\Session\SessionInterface```* ```$session``` - Session implementation
+- *```string```* ```$key``` - Authentication key name
 
 #### ```attempt``` (*```array```* ```$credentials```, *```boolean```* ```$login```:```true```)
 
@@ -67,6 +70,13 @@ Checks if a user is a guest.
 Gets the user credentials.
 
 `returns`: `mixed` - (`null`|`object`|`array`). If no user is authenticated, a `null` will be `return`ed.
+
+### ```EloquentUserProvider```
+
+**Parameters**:
+
+- *```SRPH\Jelai\Hashing\HashingInterface```* ```$hasher``` - Hasher implementation
+- *```string```* ```$model```- Model name
 
 ## Acknowledgement
 
