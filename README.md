@@ -78,6 +78,10 @@ Gets the user credentials.
 - *```SRPH\Jelai\Hashing\HashingInterface```* ```$hasher``` - Hasher implementation
 - *```string```* ```$model```- Model name
 
+## Important Note
+
+**.. Ugh.. I give up documenting PHP stuff by myself.**. Implementation is already done, however documentation is not even half complete.
+
 ## Acknowledgement
 
 **jelai.php-auth** © 2015+, Kier Borromeo (srph). **jelai.php** is released under the [MIT](mit-license.org) license.
