@@ -8,7 +8,7 @@ Please see this [gist](https://gist.github.com/srph/2e2d51d46dadfdbc38e3).
 
 ## Usage
 
-First and foremost, our authentication depends on a ```UserProvider``` implementation (*class* that implements [```SRPH\Jelai\Auth\UserProviderInterface```](https://github.com/)) and ```Session``` implementation (*class* that implements [```SRPH\Jelai\Session\SessionInterface```](https://github.com/srph/jelai.php-session#sessioninterface)) instantiate the [```Auth\Factory```](#factory) class.
+First and foremost, our authentication depends on a ```UserProvider``` implementation and ```Session``` implementation instantiate the [```Auth\Factory```](#factory) class.
 
 \* Check the class's (```Auth\Factory```) [API](#factory).
 
