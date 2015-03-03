@@ -1,5 +1,7 @@
 <?php namespace SRPH\Jelai\Auth;
 
+use SRPH\Jelai\Session\SessionInterface;
+
 class Factory {
 
 	/**
@@ -29,7 +31,7 @@ class Factory {
 	 * @param Core\Session\SessionInterface $session Session implementation
 	 * @param {string} Key of authentication on the session collection
 	 */
-	public function __construct($provider, $session, $key)
+	public function __construct(UserProviderInterface $provider, SessionInterface $session, $key)
 	{
 		$this->provider = $provider;
 		$this->session = $session;
