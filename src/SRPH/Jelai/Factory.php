@@ -75,7 +75,7 @@ class Factory {
 	 * @param Core\Auth\UserInterface $user User to be authenticated
 	 * @return void
 	 */
-	public function login($user)
+	public function login(UserInterface $user)
 	{
 		$this->session->set($this->key, $user->getAuthIdentifier());
 		$this->user = $user;
